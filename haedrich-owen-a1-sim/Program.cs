@@ -83,7 +83,7 @@ else
                 Console.WriteLine($"\n> Great! Let's add that to your bill. The demand is now ${demand}. HAHAHA!");
             }
             else
-                Console.WriteLine("I don't think so.");
+                Console.WriteLine("> I don't think so.");
         }
     }
 
