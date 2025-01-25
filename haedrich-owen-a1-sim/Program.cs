@@ -134,7 +134,7 @@ else if (action != "OFFER")
 if (!playerPaid)
 {
     Console.WriteLine($"\n> I will let you make one final offer. Think carefully.");
-    Console.WriteLine($"\n> And consider that you are wasting my time once again. BWAHAHA!");
+    Console.WriteLine($"\n> And consider that I will put my 2x fee on top. BWAHAHA!");
     Console.WriteLine("\n> I am overflowing with excitement that we can make a good deal.");
     Console.WriteLine("\n*How much do you offer?*\n*Make your decision by inputting a whole number.*\n");
 
