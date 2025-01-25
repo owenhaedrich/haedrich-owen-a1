@@ -173,10 +173,10 @@ if (!playerPaid)
 
 // Show the player the final deal and ask for payment
 var transfer = -demand;
-if (transfer < 0)
-    Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION IS PENDING ON YOUR ACCOUNT: +${transfer}.");
+if (transfer > 0)
+    Console.WriteLine($"\n>> A PRE-AUTHORIZED DEPOSIT IS PENDING ON YOUR ACCOUNT: ${transfer}.");
 else
-    Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION IS PENDING ON YOUR ACCOUNT: ${transfer}.");
+    Console.WriteLine($"\n>> A PAYMENT IS PENDING ON YOUR ACCOUNT: ${demand}.");
 Console.WriteLine($">> DO YOU ACCEPT? (Y/N)");
 Console.WriteLine("\n*Choose by inputting Y or N*\n");
 string accept = Console.ReadLine();
