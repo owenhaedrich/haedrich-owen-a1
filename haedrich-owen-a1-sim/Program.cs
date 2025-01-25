@@ -4,8 +4,8 @@ bool playerPaid = false;
 // Phase 1: Introduction
 
 // Introduce Scenerio, Provide Options to Player
-Console.WriteLine($"\n> Hello, your mainframe has been hacked.\n> Luckily, I am in the business of resolving hacks." +
-    $"\n> I'll need a payment of ${demand} to ensure that your critical business infrastructure won't be destroyed.");
+Console.WriteLine($"\n> Hello, your mainframe has been hacked.\n> Luckily, I am in the business of resolving hacks.");
+Console.WriteLine($"\n> I'll need a payment of ${demand} to ensure that your critical business infrastructure won't be destroyed.");
 Console.WriteLine($"\n*What will you do? Will you INQUIRE for more info, PAY the ${demand} fee, or REBOOT your system?*");
 Console.WriteLine("*Choose by inputting INQUIRE, PAY, or REBOOT*\n");
 
@@ -42,8 +42,8 @@ if (action == "PAY")
     playerPaid = true;
 else if (action == "INQUIRE")
 {
-    Console.WriteLine($"\n> Who am I? I am an automated business-ransom-resolution AI." +
-        $"\n> Your machines have been infected with adaptive smart-code. This problem won't be resolved without my help.");
+    Console.WriteLine($"\n> Who am I? I am an automated business-ransom-resolution AI.");
+    Console.WriteLine($"\n> Your machines have been infected with adaptive smart-code. This problem won't be resolved without my help.");
 }
 
 // Phase 2: Investigation and Negotiation
@@ -69,7 +69,7 @@ else
         // Ask for integer offer and process it
         Console.WriteLine("\n*How much do you offer?*\n*Make your decision by inputting a whole number.*\n");
         string attemptedOffer = Console.ReadLine();
-        
+
         // Decline negatives by checking the string for a negative sign
         if (attemptedOffer.Contains("-"))
             Console.WriteLine("> I'm not going to pay you! Stop kidding around.");
@@ -141,7 +141,8 @@ if (!playerPaid)
 // Phase 4: Payment
 
 // Show the player the final deal and ask for payment
-Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION HAS UPDATED YOUR BALANCE TO ${-demand}.");
+var balance = -demand;
+Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION HAS UPDATED YOUR BALANCE TO ${balance}.");
 Console.WriteLine($">> DO YOU ACCEPT? (Y/N)");
 Console.WriteLine("\n*Choose by inputting Y or N*\n");
 string accept = Console.ReadLine();
@@ -151,7 +152,7 @@ if (accept == "Y")
 {
     if (demand < 0)
     {
-        Console.WriteLine($"*${-demand} is deposited into your account.*\n*You host an awesome party and it's a great time.*");
+        Console.WriteLine($"*${balance} is deposited into your account.*\n*You host an awesome party and it's a great time.*");
         Console.WriteLine("You win!");
     }
     else if (demand == 0)
