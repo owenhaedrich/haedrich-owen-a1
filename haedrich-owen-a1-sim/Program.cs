@@ -172,8 +172,11 @@ if (!playerPaid)
 // Phase 4: Payment
 
 // Show the player the final deal and ask for payment
-var balance = -demand;
-Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION HAS UPDATED YOUR BALANCE TO ${balance}.");
+var transfer = -demand;
+if (transfer < 0)
+    Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION IS PENDING ON YOUR ACCOUNT: +${transfer}.");
+else
+    Console.WriteLine($"\n>> A PRE-AUTHORIZED TRANSACTION IS PENDING ON YOUR ACCOUNT: ${transfer}.");
 Console.WriteLine($">> DO YOU ACCEPT? (Y/N)");
 Console.WriteLine("\n*Choose by inputting Y or N*\n");
 string accept = Console.ReadLine();
@@ -185,7 +188,7 @@ if (accept == "Y")
     // Player gets epic win if the demand is negative
     if (demand < 0)
     {
-        Console.WriteLine($"*${balance} is deposited into your account.*\n*You host an awesome party and it's a great time.*");
+        Console.WriteLine($"*${transfer} is deposited into your account.*\n*You host an awesome party and it's a great time.*");
         Console.WriteLine("Epic win!");
     }
 
