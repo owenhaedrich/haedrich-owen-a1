@@ -18,7 +18,7 @@ if (!(action == "PAY" || action == "INQUIRE"))
     if (action == "REBOOT")
     {
         Console.WriteLine("\nRebooting... Please wait.\n");
-        Console.WriteLine("> HAHAHA! This hack is far too advanced for such a trivial strategy to work.");
+        Console.WriteLine("\n> HAHAHA! This hack is far too advanced for such a trivial strategy to work.");
     }
 
     // Process invalid input
@@ -29,7 +29,7 @@ if (!(action == "PAY" || action == "INQUIRE"))
 
     // Increase ransom demand
     demand *= 2;
-    Console.WriteLine($"> For the trouble, the payment is now doubled to ${demand}.");
+    Console.WriteLine($"\n> For the trouble, the payment is now doubled to ${demand}.");
 
     // Provide options to player - second chance to get information
     Console.WriteLine($"\n*What will you do now? Will you INQUIRE for more info, or PAY the ${demand} fee?*");
@@ -63,7 +63,10 @@ if (action == "PAY")
 else
 {
     if (action == "INQUIRE")
-        Console.WriteLine("\n> As a C# program, I can clearly SEE that you aren't so SHARP! WHAHAHA! \n> Now, please refrain from asking questions. My patience is beyond its maximum.");
+    {
+        Console.WriteLine("\n> As a C# program, I can clearly SEE that you aren't so SHARP! WHAHAHA! ");
+        Console.WriteLine("\n> Now, please refrain from asking questions. My patience is beyond its maximum.");
+    }
     else if (action == "OFFER")
     {
         // Ask for integer offer and process it
@@ -72,7 +75,7 @@ else
 
         // Decline negatives by checking the string for a negative sign
         if (attemptedOffer.Contains("-"))
-            Console.WriteLine("> I'm not going to pay you! Stop kidding around.");
+            Console.WriteLine("\n> I'm not going to pay you! Stop kidding around.");
         else
         {
             // Parse the integer - if the offer is high enough, add it to the demand
@@ -83,7 +86,7 @@ else
                 Console.WriteLine($"\n> Great! Let's add that to your bill. The demand is now ${demand}. HAHAHA!");
             }
             else
-                Console.WriteLine("> I don't think so.");
+                Console.WriteLine("\n> I don't think so.");
         }
     }
 
@@ -95,7 +98,7 @@ else
 
     // Increase ransom demand
     demand *= 2;
-    Console.WriteLine($"> And for wasting my time, the price doubles to ${demand}.");
+    Console.WriteLine($"\n> And for wasting my time, the price doubles to ${demand}.");
 }
 
 // Phase 3: Final Offer
@@ -113,9 +116,13 @@ if (action == "PAY")
 // Railroad players who provide invalid input
 else if (action != "OFFER")
     Console.WriteLine("\n> Get real.");
+
+// Give hints and let the player make their final offer
 if (!playerPaid)
 {
-    Console.WriteLine($"\n> I will let you make one final offer. Think carefully.\n > And consider that you are wasting my time once again. BWAHAHA! \n> I am overflowing with excitement that we can make a good deal.");
+    Console.WriteLine($"\n> I will let you make one final offer. Think carefully.");
+    Console.WriteLine($"\n > And consider that you are wasting my time once again. BWAHAHA!");
+    Console.WriteLine("\n> I am overflowing with excitement that we can make a good deal.");
     Console.WriteLine("\n*How much do you offer?*\n*Make your decision by inputting a whole number.*\n");
     string attemptedOffer = Console.ReadLine();
     if (attemptedOffer.Contains("-"))
@@ -135,7 +142,7 @@ if (!playerPaid)
         }
     }
     demand *= 2;
-    Console.WriteLine("> Alright. I'm done here. With my 2x fee added I'll arrange the transfer.");
+    Console.WriteLine("\n> Alright. I'm done here. With my 2x fee added I'll arrange the transfer.");
 }
 
 // Phase 4: Payment
@@ -186,6 +193,6 @@ if (accept == "Y")
 // Player is told to play again if they don't accept any deal
 else
 {
-    Console.WriteLine("> Clearly you are not serious. We will hold your system until you change your attitude. Re-initialize this program if you want to talk again.");
+    Console.WriteLine("\n> Clearly you are not serious. We will hold your system until you change your attitude. Re-initialize this program if you want to talk again.");
     Console.WriteLine("\nPlease play again.");
 }
