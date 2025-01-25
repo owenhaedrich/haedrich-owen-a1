@@ -85,20 +85,28 @@ else
         Console.WriteLine("\n*How much do you offer?*\n*Make your decision by inputting a whole number.*\n");
         string attemptedOffer = Console.ReadLine();
 
-        // Decline negatives by checking the string for a negative sign
+        // Decline negative offers
         if (attemptedOffer.Contains("-"))
-            Console.WriteLine("\n> I'm not going to pay you! Stop kidding around.");
+            Console.WriteLine("> I'm not going to pay you! Stop kidding around.");
         else
         {
-            // Parse the integer - if the offer is high enough, add it to the demand
+            // Parse the offer as an integer
             int offer = int.Parse(attemptedOffer);
-            if (offer > 1000)
+
+            // Accept the offer if it's greater than the demand
+            if (offer > demand)
+            {
+                Console.WriteLine($"\n> I see... ${offer} is not too bad. I'll take it.");
+                demand = offer;
+                playerPaid = true;
+            }
+
+            // Add the offer to the demand otherwise
+            else
             {
                 demand += offer;
-                Console.WriteLine($"\n> Great! Let's add that to your bill. The demand is now ${demand}. HAHAHA!");
+                Console.WriteLine($"\n> Alright. Let's add that to your payment. It's ${demand} now.");
             }
-            else
-                Console.WriteLine("\n> I don't think so.");
         }
     }
 
@@ -118,13 +126,15 @@ else
 // Allow the player to make a final offer if they haven't paid
 if (!playerPaid)
 {
-    Console.WriteLine("\n*What will you do? Will you PAY the ransom, or make an OFFER?*");
-    Console.WriteLine("*Choose by inputting PAY or OFFER*\n");
+    Console.WriteLine($"\n*What will you do? Will you INQUIRE for more info, PAY the ${demand} ransom, or make an OFFER?*");
+    Console.WriteLine("*Choose by inputting INQUIRE, PAY, or OFFER*\n");
     action = Console.ReadLine();
 }
 
 if (action == "PAY")
     playerPaid = true;
+else if (action == "INQUIRE")
+    Console.WriteLine("\n> No more questions.");
 
 // Handle invalid input
 else if (action != "OFFER")
