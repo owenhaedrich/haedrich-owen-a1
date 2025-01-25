@@ -95,7 +95,7 @@ else
 
     // Increase ransom demand
     demand *= 2;
-    Console.WriteLine($"And for wasting my time, the price doubles to ${demand}.");
+    Console.WriteLine($"> And for wasting my time, the price doubles to ${demand}.");
 }
 
 // Phase 3: Final Offer
