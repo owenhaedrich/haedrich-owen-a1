@@ -150,21 +150,29 @@ string accept = Console.ReadLine();
 // Evaluate win condition and provide ending
 if (accept == "Y")
 {
+
+    // Player gets epic win if the demand is negative
     if (demand < 0)
     {
         Console.WriteLine($"*${balance} is deposited into your account.*\n*You host an awesome party and it's a great time.*");
-        Console.WriteLine("You win!");
+        Console.WriteLine("Epic win!");
     }
+
+    // Player wins if the demand is zero
     else if (demand == 0)
     {
         Console.WriteLine("You win!");
     }
+
+    // Player loses if they pay the demand
     else if (demand < 10000000)
     {
         Console.WriteLine($"\n*You wire ${demand} to the attacker*");
         Console.WriteLine("\n> Thank you for your cooperation!\n> We hope to do business with you again in the future.");
         Console.WriteLine("\nYou lose!\nPlease play again.");
     }
+
+    // Players gets epic loss if they pay too much
     else
     {
         Console.WriteLine($"\n*You wire ${demand} to the attacker*");
@@ -174,8 +182,10 @@ if (accept == "Y")
         Console.WriteLine("\nEpic loss!\nPlease try again.");
     }
 }
+
+// Player is told to play again if they don't accept any deal
 else
 {
     Console.WriteLine("> Clearly you are not serious. We will hold your system until you change your attitude. Re-initialize this program if you want to talk again.");
-    Console.WriteLine("\nYou lose!\nPlease play again.");
+    Console.WriteLine("\nPlease play again.");
 }
