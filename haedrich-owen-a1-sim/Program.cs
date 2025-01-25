@@ -9,7 +9,7 @@ Console.WriteLine($"\n> I'll need a payment of ${demand} to ensure that your cri
 Console.WriteLine($"\n*What will you do? Will you INQUIRE for more info, PAY the ${demand} fee, or REBOOT your system?*");
 Console.WriteLine("*Choose by inputting INQUIRE, PAY, or REBOOT*\n");
 
-// Get user input - first chance to get information
+// Get user input - provide first chance to get information
 string action = Console.ReadLine();
 
 // Process user input - provide second chance to get information if they don't inquire or pay
