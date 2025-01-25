@@ -37,13 +37,21 @@ if (!(action == "PAY" || action == "INQUIRE"))
     action = Console.ReadLine();
 }
 
-// Provide information to inquiring players - payment skips to the end sequence
+// Payment skips to the end sequence
 if (action == "PAY")
     playerPaid = true;
+
+// Provide information to inquiring players
 else if (action == "INQUIRE")
 {
     Console.WriteLine($"\n> Who am I? I am an automated business-ransom-resolution AI.");
     Console.WriteLine($"\n> Your machines have been infected with adaptive smart-code. This problem won't be resolved without my help.");
+}
+
+// Process invalid input
+else
+{
+    Console.WriteLine("\n> I don't follow.");
 }
 
 // Phase 2: Investigation and Negotiation
@@ -58,15 +66,19 @@ if (!playerPaid)
 }
 
 // Process player input
+// Payment skips to the end sequence
 if (action == "PAY")
     playerPaid = true;
 else
 {
+    // End inquiry
     if (action == "INQUIRE")
     {
         Console.WriteLine("\n> As a C# program, I can clearly SEE that you aren't so SHARP! WHAHAHA! ");
         Console.WriteLine("\n> Now, please refrain from asking questions. My patience is beyond its maximum.");
     }
+
+    // Process first offer
     else if (action == "OFFER")
     {
         // Ask for integer offer and process it
@@ -96,13 +108,14 @@ else
         Console.WriteLine($"\n> I might be a 32 bit program, but you're the one who need to get real.");
     }
 
-    // Increase ransom demand
+    // Increase demand
     demand *= 2;
     Console.WriteLine($"\n> And for wasting my time, the price doubles to ${demand}.");
 }
 
 // Phase 3: Final Offer
 
+// Allow the player to make a final offer if they haven't paid
 if (!playerPaid)
 {
     Console.WriteLine("\n*What will you do? Will you PAY the ransom, or make an OFFER?*");
@@ -113,7 +126,7 @@ if (!playerPaid)
 if (action == "PAY")
     playerPaid = true;
 
-// Railroad players who provide invalid input
+// Handle invalid input
 else if (action != "OFFER")
     Console.WriteLine("\n> Get real.");
 
@@ -121,26 +134,37 @@ else if (action != "OFFER")
 if (!playerPaid)
 {
     Console.WriteLine($"\n> I will let you make one final offer. Think carefully.");
-    Console.WriteLine($"\n > And consider that you are wasting my time once again. BWAHAHA!");
+    Console.WriteLine($"\n> And consider that you are wasting my time once again. BWAHAHA!");
     Console.WriteLine("\n> I am overflowing with excitement that we can make a good deal.");
     Console.WriteLine("\n*How much do you offer?*\n*Make your decision by inputting a whole number.*\n");
+
+    // Read input
     string attemptedOffer = Console.ReadLine();
+
+    // Decline negative offers
     if (attemptedOffer.Contains("-"))
         Console.WriteLine("> You can't offer a negative amount. You must be joking.");
     else
     {
+        // Parse the offer as an integer
         int offer = int.Parse(attemptedOffer);
+
+        // Accept the offer if it's greater than the demand
         if (offer > demand)
         {
             Console.WriteLine($"\n> I see... ${offer} is not too bad. I'll take it.");
             demand = offer;
         }
+
+        // Add the offer to the demand otherwise
         else
         {
             demand += offer;
             Console.WriteLine($"\n> Lowballing? The demand is now ${demand}.");
         }
     }
+
+    // Increase demand
     demand *= 2;
     Console.WriteLine("\n> Alright. I'm done here. With my 2x fee added I'll arrange the transfer.");
 }
